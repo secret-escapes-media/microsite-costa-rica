@@ -1,0 +1,46 @@
+---
+layout: default
+id: overview
+nav: true
+nav-order: 1
+title: Overview
+intro: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos rerum optio est consequuntur ut quibusdam soluta molestias perspiciatis, dolor corrupti culpa labore aspernatur voluptates, ipsum laborum eligendi placeat et fugiat sit, quidem, totam iure ea ad velit! Aliquid, placeat, ea. Amet accusamus voluptas odit harum necessitatibus consequatur delectus autem rerum architecto voluptatum.
+---
+
+<div class="bg--light">
+  <div class="container container--xl vpad--xl text--center text--lg bv-mob-left">
+    {{page.intro}}<br><br>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- loops through section file for page content-->
+
+    {% for section in site.data.sections %}
+<div class="container vpad--xl">
+  <div id="{{section.id}}" class="js-nav-section">
+    <h3 class="title title--lg text--center text--bold bv-divider">{{section.title}}</h3>
+    <div class="space--xxl"></div>
+    <div class="row  row--lg-6-6 row--xl-4-4-4">
+      {% for poi in section.pois.items %}
+        <div class="col {% if poi.item <= 2 %} col--6{% endif %}">
+          <div class="bg-img bg-img--3-2 shadow" style="background-image: url('{{site.img}}/content/{{section.id}}/pois/{{poi.id}}.jpg');">
+            <a id="track-poi-{{poi.id}}" href="#" class="bg-img__link js-open-modal" data-open-modal="{{poi.id}}"></a>
+            <div class="bg-img__bg-overlay"></div>
+            <div class="bg-img__content">
+              <div class="title title--sm">{{poi.title}}</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+    {% endfor %}
