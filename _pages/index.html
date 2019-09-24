@@ -3,7 +3,7 @@ layout: default
 id: overview
 nav: true
 nav-order: 1
-title: Overview
+title: Übersicht
 intro: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos rerum optio est consequuntur ut quibusdam soluta molestias perspiciatis, dolor corrupti culpa labore aspernatur voluptates, ipsum laborum eligendi placeat et fugiat sit, quidem, totam iure ea ad velit! Aliquid, placeat, ea. Amet accusamus voluptas odit harum necessitatibus consequatur delectus autem rerum architecto voluptatum.
 ---
 
@@ -30,7 +30,7 @@ intro: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos rerum optio
     <div class="row  row--lg-6-6 row--xl-4-4-4">
       {% for poi in section.pois.items %}
         <div class="col {% if poi.item <= 2 %} col--6{% endif %}">
-          <div class="bg-img bg-img--3-2 shadow" style="background-image: url('{{site.img}}/content/{{section.id}}/pois/{{poi.id}}.jpg');">
+          <div class="bg-img bg-img--3-2 shadow" style="background-image: url('{{site.img}}/content/{{poi.img}}');">
             <a id="track-poi-{{poi.id}}" href="#" class="bg-img__link js-open-modal" data-open-modal="{{poi.id}}"></a>
             <div class="bg-img__bg-overlay"></div>
             <div class="bg-img__content">
