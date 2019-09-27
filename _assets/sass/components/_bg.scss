@@ -4,6 +4,8 @@
   &--white { background-color: $white; }
   &--light { background-color: $grey-lightest; }
   &--dark  { background-color: $grey-dark; }
+  &--green  { background-color: $bv-green; }
+  &--green-dark  { background-color: $bv-green-dark; }
   &--img   { @include background-attributes; }
   &__fixed {
     position: fixed;
