@@ -3,76 +3,54 @@ layout: default
 id: overview
 nav: true
 nav-order: 1
-title: Costa Rica
+title: Die grüne Lunge des Planeten
+nav-title: Übersicht
 
 banner:
   title: Costa Rica
-  title-sub: Lorem ipsum dolor sit amet consectetur adipisicing elit
+  title-sub: Naturparadies zwischen zwei Weltmeeren
+  bg-pos: "background-position: 60% center;"
 
 intro-title: Headline
-intro: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rem officiis similique harum. Culpa voluptatibus assumenda, tempore debitis quasi sequi hic nihil quos distinctio repudiandae perferendis perspiciatis odit, commodi provident quisquam placeat sunt labore qui ducimus aspernatur vitae suscipit animi. Fugit recusandae aperiam deserunt laboriosam expedita tenetur molestiae atque totam repellat necessitatibus. Odit quas, hic vero sunt tenetur at neque."
+intro: "'Pura vida', das pure Leben, ist das Motto des zentralamerikanischen Staates. Zum einen bezieht sich das auf Costa Ricas unnachahmliche Artenvielfalt, aber auch auf ihre Naturkulissen, die mit Vulkanen, einer hohen Dichte an Nationalparks und Traumstränden gespickt sind. Werden Sie zum Abenteurer und machen Sie Costa Rica zu einem neuen Reise-Favoriten."
+
 
 ---
 
-<div class="bg--light">
-  <div class="container container--xl vpad--xl text--left text--lg bv-mob-left">
-      <h3 class="title title--lg text--green bv-divider">{{page.intro-title}}</h3>
-    <div class="space--md"></div>
-    {{page.intro}}<br><br>
-
+<div class=" vpad--xxl bg--green-dark text--white" >
+  <div class="container">
+    <div class="width width--xl text--justify text--normal text--xxl bv-mob-left" >
+      <p>{{page.intro}}</p>
+    </div>
   </div>
 </div>
 
 
 
-<!---- Regions ---
+
+<!---- Regions ----->
 
 
 <div class="container vpad--xxl">
 
   {% assign destinations = site.html_pages | where: 'content-pages', 'true'  | sort:'nav-order' %}
 
-  <div class="row  row--lg-6-6 ">
+
   {% for destination in destinations %}
 
-  <div class="col  js-nav-section"">
-    <div class="bg-img bg-img--16-9 shadow bv-modal-thumbn" style="background-image: url('{{site.img}}/content/{{destination.id}}/hero.jpg');">
-      <a id="track-poi-{{poi.id}}" href="#" class="bg-img__link js-open-modal" data-open-modal="{{destination.id}}"></a>
-      <div class="bg-img__bg-overlay"></div>
-      <div class="bg-img__content">
-        <div class="title title--sm text--upper text--semibold">{{destination.title}}</div>
-      </div>
+
+  <div class="bob  {% cycle '', 'bob--swap' %} ">
+    <div class="bob__img">
+      <a href="{{site.baseurl}}{{destination.url}}"  class="bg-img bg-img--4-3" style="background-image: url('{{site.img}}/content/{{destination.id}}/hero.jpg');" ></a>
+    </div>
+    <div class="bob__text">
+      <h3 class="sub-title sub-title--lg text--green">{{destination.title}}</h3>
+      <p class="text--md">{{destination.intro}}</p>
+      <div class="space--lg"></div>
+      <a href="{{site.baseurl}}{{destination.url}}" class="btn btn--md btn--green" >Jetzt entdecken</a>
     </div>
   </div>
 
   {% endfor %}
-  </div>
+
 </div>
--->
-
-
-  <!-- loops through section file for page content-->
-
-    {% for section in site.data.sections %}
-<div class="container vpad--xl text--center">
-  <div id="{{section.id}}" class="js-nav-section">
-<!--    <h3 class="title title--lg text--green text--bold bv-divider">{{section.title}}</h3>
-  <div class="space--md width width--lg"> {{section.description}}<br></div>
-    <div class="space--xxl"></div>-->
-    <div class="row  row--lg-6-6 ">
-      {% for poi in section.pois.items %}
-        <div class="col  ">
-          <div class="bg-img bg-img--3-2 shadow bv-modal-thumbn" style="background-image: url('{{site.img}}/content/{{poi.img}}');">
-            <a id="track-poi-{{poi.id}}" href="#" class="bg-img__link js-open-modal" data-open-modal="{{poi.id}}"></a>
-            <div class="bg-img__bg-overlay"></div>
-            <div class="bg-img__content">
-              <div class="title title--sm text--semibold">{{poi.title}}</div>
-            </div>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
-
-    {% endfor %}

@@ -7,26 +7,25 @@
 <div class="js-modal modal__bg is-closed">
   <div class="modal__wrap">
 
-      {% assign destinations = site.html_pages | where: 'content-pages', 'true'  | sort:'nav-order' %}
+    {% for section in site.data.sections %}
+      {% for item in section.pois.items %}
 
-      {% for destination in destinations %}
-
-        <div class="modal modal--series is-closed" data-modal-id="{{destination.id}}" data-modal-group="{{page.id}}">
+        <div class="modal modal--series is-closed" data-modal-id="{{item.id}}" data-modal-group="{{section.id}}">
           <div class="js-close-modal modal__close"></div>
           <div class="js-modal-nav modal__nav modal__nav--next" data-nav-direction="next"></div>
           <div class="js-modal-nav modal__nav modal__nav--previous" data-nav-direction="previous"></div>
-          <div class="bg-img bg-img--16-9" style="background-image: url('{{site.img}}/content/{{destination.id}}/hero.jpg');"></div>
-          <div class="modal__content text text--xxl text--center content-spacing">
-            <h3 class="title title--sm ">{{destination.banner.title}}</h3>
-            <p>{{destination.overview}}</p>
-            <div class="space--lg"></div>
-            <a href="{{destination.id}}" class="btn btn--md btn--outline btn--outline-turquoise">Mehr erfahren</a>
-
-            <div class="space--xs"></div>
+          <div class="bg-img bg-img--16-9" style="background-image: url('{{site.img}}/content/{{item.img}}');">
+            {% if item.image-credit %}<div class="bg-img__attribution js-image-attribution">{{item.image-credit}}</div>{% endif %}
+          </div>
+          <div class="modal__content text--center content-spacing">
+            <h3 class="title title--md title--core">{{item.title}}</h3>
+            <p>{{item.description}}</p>
+            <div class="space--sm"></div>
+            <a href="{{item.link}}" class="btn btn--sm btn--outline btn--outline-turquoise">Find Out More</a>
           </div>
         </div>
 
-
+      {% endfor %}
     {% endfor %}
 
     <!-- find all other modals for current page -->

@@ -17,6 +17,9 @@
   &--orange { background-color: $orange;
     &:hover { background-color: $orange-dark; }
   }
+  &--green { border: $bv-green 1px solid; color: $bv-green;
+    &:hover { background-color: $bv-green-dark; color: $white;}
+  }
   &--outline {
     color: inherit;
     &:before {
